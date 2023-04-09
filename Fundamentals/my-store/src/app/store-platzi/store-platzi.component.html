@@ -1,0 +1,57 @@
+<p>store-platzi works!</p>
+<div>
+    <div *ngFor="let product of products">
+        <img width="250" [src]="product.image" alt="">
+        <h2>{{product.price}}$</h2>
+        <p>{{product.name}}</p>
+    </div>
+</div>
+<hr>
+<div>
+    <h1>Formulario</h1>
+    <form (ngSubmit)="onRegister" #myForm="ngForm">
+        <div class="input.group">
+            <label for="name">Name</label>
+            <input type="text" name="name"required id="name"[(ngModel)]="register.name"/>
+            <p>Error Messages</p>
+        </div>
+
+        <div class="input.group">
+            <label for="email">Email</label>
+            <input type="email" name="email"required id="email"[(ngModel)]="register.email"/>
+            <p>Error Messages</p>
+        </div>
+
+        <div class="input.group">
+            <label for="name">Password</label>
+            <input type="password" name="password"required id="password"[(ngModel)]="register.password"/>
+            <p>Error Messages</p>
+        </div>
+        <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+        <button type="button">Accion</button>
+
+    </form>
+</div>
+<hr>
+<div>
+    <h1>*ngSwitch</h1>
+    <input type="text" required [(ngModel)]="person.name" />
+    <div [ngSwitch]="person.name">
+        <p *ngSwitchCase="'leo'">
+            The person is leo
+        </p>
+
+        <p *ngSwitchCase="'Julian'">
+            The person is Julian
+        </p>
+
+        <p *ngSwitchCase="'Camilo'">
+            The person is Camilo
+        </p>
+        <p ngSwitchDefault>It doesn't make match</p>
+    </div>
+    
+
+</div>
+<hr>
+
